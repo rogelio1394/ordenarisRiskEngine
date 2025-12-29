@@ -1,24 +1,52 @@
 # Ordenaris Risk Engine
 
-Motor de evaluación de riesgo crediticio modular y extensible, desarrollado en Java, que permite evaluar solicitudes de financiamiento aplicando múltiples reglas de negocio desacopladas de las fuentes de datos.
+Motor de evaluación de riesgo crediticio **modular y extensible**, desarrollado en **Java**, que permite evaluar solicitudes de financiamiento aplicando múltiples reglas de negocio desacopladas de las fuentes de datos.
 
 ---
 
-# Descripción General
+## Descripción General
 
-El motor evalúa una solicitud de crédito aplicando un conjunto de reglas independientes.
-Cada regla puede incrementar el nivel de riesgo o rechazar la solicitud según la información obtenida de proveedores externos.
+El motor evalúa una solicitud de crédito aplicando un conjunto de **reglas independientes**.  
+Cada regla analiza información obtenida de **proveedores externos** y determina un nivel de riesgo parcial.
 
-El resultado final incluye:
-- Nivel de riesgo (BAJO, MEDIO, ALTO, RECHAZADO)
-- Lista de reglas evaluadas y su resultado
-- Motivo final de la decisión (regla determinante o combinación de reglas)
+El resultado final se obtiene combinando los resultados de todas las reglas aplicadas.
 
-# Cómo ejecutar el motor
+El motor devuelve:
 
-# Requisitos
-- Java 17 o superior (probado con Java 21)
+- **Nivel de riesgo final**: `BAJO`, `MEDIO`, `ALTO`, `RECHAZADO`
+- **Listado de reglas evaluadas**, con su resultado individual
+- **Motivo final de la decisión**, ya sea:
+  - una **regla determinante**, o
+  - una **combinación de reglas**
 
-# Ejecución
-1. Abrir el proyecto en IntelliJ IDEA (o IDE compatible)
-2. Ejecutar la clase: Application.java
+---
+
+## Reglas de negocio implementadas
+
+El motor aplica las siguientes reglas:
+
+1. **DeudaActivaRule**
+2. **CapacidadPagoRule**
+3. **HistorialPagosRule**
+4. **VerificacionLegalRule**
+5. **MontoSolicitadoRule**
+6. **ProductoFinancieroRule**
+
+Cada regla puede:
+- mantener el nivel de riesgo,
+- incrementarlo,
+- o **rechazar** la solicitud.
+
+---
+
+## Cómo ejecutar el motor
+
+### Requisitos
+- **Java 17 o superior**  
+  (probado con Java 21)
+
+### Ejecución
+1. Abrir el proyecto en **IntelliJ IDEA** (o cualquier IDE compatible con Java)
+2. Ejecutar la clase:
+    
+    com.ordenaris.risk.Application
