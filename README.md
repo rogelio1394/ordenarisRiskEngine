@@ -32,11 +32,6 @@ El motor aplica las siguientes reglas:
 5. **MontoSolicitadoRule**
 6. **ProductoFinancieroRule**
 
-Cada regla puede:
-- mantener el nivel de riesgo,
-- incrementarlo,
-- o **rechazar** la solicitud.
-
 ---
 
 ## Cómo ejecutar el motor
